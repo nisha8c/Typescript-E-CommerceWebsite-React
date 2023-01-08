@@ -14,6 +14,10 @@ Stripe
 ## Start Date: Jan 08, 2023
 ## End Date: Currently working
 
+# For my reference: Setting up Tailwind in Next js:
+https://tailwindcss.com/docs/guides/nextjs
+
+
 
 
 
