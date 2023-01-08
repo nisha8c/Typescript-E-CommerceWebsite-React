@@ -7,16 +7,22 @@ https://typescript-ecommerce-by-nisha.netlify.app/
 MongoDB
 
 ## Tech Stack
-React JS
-Typescript
-Stripe
+1. React JS
+2. Typescript
+3. Stripe
+4. Next JS
+5. Tailwind (little bit)
+6. MongoDB
+7. Node JS
+8. Netlify
 
 ## Start Date: Jan 08, 2023
 ## End Date: Currently working
 
 # For my reference: Setting up Tailwind in Next js:
 https://tailwindcss.com/docs/guides/nextjs
-
+## next js link: 
+https://app.netlify.com/start
 
 
 
