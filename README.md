@@ -1,3 +1,50 @@
+# Details about the e-com website developed:
+
+## Deployed link: 
+https://typescript-ecommerce-by-nisha.netlify.app/
+
+## Database
+MongoDB
+
+## Tech Stack
+React JS
+Typescript
+Stripe
+
+## Start Date: Jan 08, 2023
+## End Date: Currently working
+
+
+
+
+# TypeScript advanced lab
+## Purpose 
+So you wanna dive deeper into TypeScript? Let’s try to make a simple eCommerce website! It can be for anything, maybe a furniture store, simple food store or a clothing store. We will need sections of items and a cart. 
+During PGP we try to guide you, but not guide you as closely as in the course. We are here to help you get started and then you can decide on your own the way you wanna go! So this lab is more of a simple set-up for you to get started. And it is up to you how you want to continue.
+This is a full stack app. So you will of course need your frontend using TypeScript and a fitting backend connected to your database (this stores the products).
+## Lab
+An eCommerce website needs a few simple requirements to get started: 
+## A cart
+the user should be able to add to the cart 
+view their products
+See the total price
+remove products 
+cart be saved in local storage or database
+## Multiple sections of products 
+To start off with a few sections that are dropdowns. As you click on a section it will show a drop-down of the products. And the user can add these products to their cart
+## The products themselves 
+Price
+An image 
+And you can also show the current stock
+Checkout your cart
+When user is done they can click on pay, and products will be deducted from the database
+
+
+
+
+
+
+# ReadMe By Next JS
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
