@@ -1,31 +1,55 @@
 import Image from 'next/image';
-import { Inter } from '@next/font/google'
-
-const inter = Inter({ subsets: ['latin'] })
+import { useEffect, useState } from 'react';
+import { ProductsData } from '../types/types';
 
 export default function Home() {
+
+  const [products, setProducts] = useState<ProductsData[]>([]);
+  const [filter, setFilter] = useState(products);
+
+  useEffect(() => {
+    const getData = async () => {
+      const response = await fetch('http://localhost:3000/api/products');
+      const data = await response.json();
+      setProducts(data);
+    };
+    getData();
+  }, []);
+
+  const filterProduct = (cat: string) => {
+    const updatedList = () => products.filter((product) => product.category === cat);
+    setFilter(updatedList);
+  };
+
   return (
     <>
-      <div className='p-5'>
-        <div>
-          <h2 className='text-2xl'>Mobiles</h2>
-          <div className='py-4'>
-            <div className='w-64'>
-              <div className='bg-blue-100 p-5 rounded-xl'>
-                <Image src='/products/Mobile-Phone.png' alt='mobile' width={200} height={200}></Image>
-              </div>
-              <div className='mt-2'>
-                <h3 className='font-bold text-lg'>Phone 1</h3>
-              </div>
-              <p className='text-sm mt-1 leading-4'>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Earum, magni. Sapiente nisi necessitatibus enim temporibus dolores cum in iusto, nulla quaerat commodi ipsam quos placeat ipsum fugit quae fuga possimus.</p>
-              <div className='flex mt-1'>
-                <div className='text-2xl font-bold grow'>$999</div>
-                <button className='bg-emerald-400 text-white py-1 px-3 rounded-xl'>Buy</button>
-              </div>
-            </div>
-          </div>
-        </div>
+      <div className='buttons'>
+          <button className='btn' type='submit' onClick={() => setFilter(products)}>All</button>
+          <button className='btn' type='submit' onClick={() => filterProduct("mobiles")}>Mobiles</button>
+          <button className='btn' type='submit' onClick={() => filterProduct("ear-phones")}>Ear Phones</button>
+          <button className='btn' type='submit' onClick={() => filterProduct('mobile-case')}>Mobile Cases</button>
+          <button className='btn' type='submit' onClick={() => filterProduct('charger')}>Chargers</button>
       </div>
+
+      <ul className='cards'>
+        {filter.map((product) => {
+          return (
+                <li className='card' key={product.name.toString()}>
+                  <div className='card-header'>
+                    <Image src={product.picture.toString()} alt={product.name.toString()} width={200} height={200}/>
+                  </div>
+                  <h3>{product.name}</h3>
+                  <div>
+                    {product.description}
+                  </div>
+                  <div>
+                    {product.price.toString()}
+                  </div>
+                  
+                </li>
+          );
+        })}
+        </ul>
     </>
-  )
+  );
 }
