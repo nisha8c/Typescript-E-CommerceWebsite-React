@@ -37,7 +37,7 @@ export default function Home() {
       <div className='products-container'>
         {filter.map(product => (
           <>      
-            <div key={product.name.toString()} className="flex -mx-15">
+            <div key={product.name.toString()} className="flex -mx-5">
               <div key={product.toString()} className="px-5 snap-start">
                 <Product data={product}/>
               </div>
