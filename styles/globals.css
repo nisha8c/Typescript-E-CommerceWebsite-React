@@ -10,11 +10,18 @@
   letter-spacing: 1.2px;
   margin: 15px 10px;
   padding: 5px;
-  border-radius: 5px;
+  border-radius: 10px;
   cursor: pointer;
 }
 
 .btn:hover {
-    background-color: black;
+    background-color: #4BED9C;
     color: white;
+    border: 1px solid white;
+}
+
+.products-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
 }

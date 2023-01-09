@@ -9,9 +9,9 @@ interface IProductComponentProps {
 const Product = ({data}: IProductComponentProps) => {
     return(
         <>
-            <div>
-                <h2 className="text-2xl py-5 capitalize">{data.category}</h2>
-                <div className="flex -mx-5 overflow-x-scroll snap-x scrollbar-hide">
+            <div className="p-5">
+                
+                <div className="flex -mx-2">
 
                     <div key={data.name.toString()} className="px-5 snap-start">
                     <div className="w-52">

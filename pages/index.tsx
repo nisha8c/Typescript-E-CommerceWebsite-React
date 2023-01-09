@@ -26,6 +26,7 @@ export default function Home() {
   return (
     <section>
       <div className='buttons'>
+          <h2 className="text-2xl py-5 capitalize p-2">Filter Products By Category</h2>
           <button className='btn' type='submit' onClick={() => setFilter(products)}>All</button>
           <button className='btn' type='submit' onClick={() => filterProduct("mobiles")}>Mobiles</button>
           <button className='btn' type='submit' onClick={() => filterProduct("ear-phones")}>Ear Phones</button>
@@ -33,13 +34,15 @@ export default function Home() {
           <button className='btn' type='submit' onClick={() => filterProduct('charger')}>Chargers</button>
       </div>
 
-      <div>
+      <div className='products-container'>
         {filter.map(product => (
-          <div key={product.toString()}>
-            
-            <Product data={product}/>
-              
-          </div>
+          <>      
+            <div key={product.name.toString()} className="flex -mx-15">
+              <div key={product.toString()} className="px-5 snap-start">
+                <Product data={product}/>
+              </div>
+            </div> 
+          </>
         ))}
       </div>
         
