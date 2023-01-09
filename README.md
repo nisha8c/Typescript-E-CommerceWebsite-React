@@ -17,6 +17,9 @@ MongoDB
 7. Node JS
 8. Netlify
 
+## Extra libs used:
+1. react-scroll-to-top
+
 ## Start Date: Jan 08, 2023
 ## End Date: Currently working
 

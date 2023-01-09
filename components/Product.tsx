@@ -26,7 +26,7 @@ const Product = ({data}: IProductComponentProps) => {
                   <p className="text-sm mt-1 leading-4 text-gray-500">{data.description}</p>
 
                   <div className="flex mt-1">
-                    <div className="text-2xl font-bold grow">${data.price.toString()}</div>
+                    <div className="text-2xl font-bold grow">$ {data.price.toString()}</div>
                     <button className="bg-emerald-400 text-white py-1 px-3 rounded-xl">Add to Cart</button>
                   </div>
                 </div>

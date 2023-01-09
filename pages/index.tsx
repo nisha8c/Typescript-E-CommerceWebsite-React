@@ -1,9 +1,13 @@
 
 import React, { useEffect, useState } from 'react';
 import { ProductsData } from '../types/types';
-import Product from '../components/Product';
 import {initMongoose} from "../lib/mongoose";
 import { findAllProducts } from "./api/products";
+import ScrollToTop from "react-scroll-to-top";
+
+import Product from '../components/Product';
+import Footer from '../components/Footer';
+import Header from '../components/Header';
 
 interface IProductComponentProps {
   products: ProductsData[]
@@ -29,6 +33,10 @@ export default function Home({products}: IProductComponentProps) {
 
   return (
     <section>
+      
+      <ScrollToTop smooth={true} width='25' height='25' top={15}/>
+
+      <Header />
 
       <div className='search-container'>
         <input value={phrase} onChange={e => setPhrase(e.target.value)} type="text" placeholder="Search for products..." className="bg-gray-200 w-full py-2 px-4 rounded-xl"/>
@@ -54,6 +62,8 @@ export default function Home({products}: IProductComponentProps) {
           </>
         ))}
       </div>
+
+      <Footer />
         
     </section>
   );
