@@ -6,6 +6,7 @@ https://typescript-ecommerce-by-nisha.netlify.app/
 ## Database
 MongoDB
 
+
 ## Tech Stack
 1. React JS
 2. Typescript
@@ -23,6 +24,8 @@ MongoDB
 https://tailwindcss.com/docs/guides/nextjs
 ## next js link: 
 https://app.netlify.com/start
+## useful link : 
+https://nextjs.org/docs/basic-features/typescript
 
 
 

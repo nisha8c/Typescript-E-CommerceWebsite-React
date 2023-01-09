@@ -1,6 +1,7 @@
-import Image from 'next/image';
-import { useEffect, useState } from 'react';
+
+import React, { useEffect, useState } from 'react';
 import { ProductsData } from '../types/types';
+import Product from '../components/Product';
 
 export default function Home() {
 
@@ -22,7 +23,7 @@ export default function Home() {
   };
 
   return (
-    <>
+    <section>
       <div className='buttons'>
           <button className='btn' type='submit' onClick={() => setFilter(products)}>All</button>
           <button className='btn' type='submit' onClick={() => filterProduct("mobiles")}>Mobiles</button>
@@ -34,38 +35,13 @@ export default function Home() {
       <div>
         {filter.map(product => (
           <div key={product.toString()}>
-           
-              <div>
-                <h2 className="text-2xl py-5 capitalize">{product.category}</h2>
-                <div className="flex -mx-5 overflow-x-scroll snap-x scrollbar-hide">
-
-                    <div key={product.name.toString()} className="px-5 snap-start">
-                    <div className="w-52">
-                      <div className="bg-blue-100 p-5 rounded-xl">
-                        <Image src={product.picture.toString()} alt="" width={200} height={200}/>
-                      </div>
-
-                      <div className="mt-2">
-                        <h3 className="font-bold text-lg">{product.name}</h3>
-                      </div>
-
-                      <p className="text-sm mt-1 leading-4 text-gray-500">{product.description}</p>
-
-                      <div className="flex mt-1">
-                        <div className="text-2xl font-bold grow">${product.price.toString()}</div>
-                        <button className="bg-emerald-400 text-white py-1 px-3 rounded-xl">Add to Cart</button>
-                      </div>
-
-                    </div>
-                    </div>
-                  
-                </div>
-              </div>
             
+            <Product data={product}/>
+              
           </div>
         ))}
       </div>
         
-    </>
+    </section>
   );
 }
