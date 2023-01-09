@@ -13,6 +13,7 @@ export default function Home() {
       const response = await fetch('/api/products');
       const data = await response.json();
       setProducts(data);
+      setFilter(data);
     };
     getData();
   }, []);
