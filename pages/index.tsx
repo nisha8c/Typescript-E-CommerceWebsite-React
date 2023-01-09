@@ -53,7 +53,7 @@ export default function Home() {
 
                       <div className="flex mt-1">
                         <div className="text-2xl font-bold grow">${product.price.toString()}</div>
-                        <button className="bg-emerald-400 text-white py-1 px-3 rounded-xl">+</button>
+                        <button className="bg-emerald-400 text-white py-1 px-3 rounded-xl">Add to Cart</button>
                       </div>
 
                     </div>
