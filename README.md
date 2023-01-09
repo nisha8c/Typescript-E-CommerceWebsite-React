@@ -19,6 +19,8 @@ MongoDB
 
 ## Extra libs used:
 1. react-scroll-to-top
+2. react-social-icons
+3. use-local-storage-state
 
 ## Start Date: Jan 08, 2023
 ## End Date: Currently working

@@ -32,14 +32,13 @@ export default function Home({products}: IProductComponentProps) {
   }
 
   return (
-    <section>
-      
-      <ScrollToTop smooth={true} width='25' height='25' top={15}/>
-
+    <>
       <Header />
 
+      <ScrollToTop smooth={true} width='25' height='25' top={15}/>
+
       <div className='search-container'>
-        <input value={phrase} onChange={e => setPhrase(e.target.value)} type="text" placeholder="Search for products..." className="bg-gray-200 w-full py-2 px-4 rounded-xl"/>
+        <input value={phrase} onChange={e => setPhrase(e.target.value)} type="text" placeholder="Search by Product Name..." className="bg-gray-200 w-full py-2 px-4 rounded-xl"/>
       </div>
 
       <div className='buttons'>
@@ -62,10 +61,10 @@ export default function Home({products}: IProductComponentProps) {
           </>
         ))}
       </div>
-
-      <Footer />
         
-    </section>
+      <Footer />
+   
+    </>
   );
 }
 
