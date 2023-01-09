@@ -1,5 +1,5 @@
 
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { ProductsData } from '../types/types';
 import {initMongoose} from "../lib/mongoose";
 import { findAllProducts } from "./api/products";

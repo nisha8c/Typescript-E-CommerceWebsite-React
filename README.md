@@ -12,10 +12,11 @@ MongoDB
 2. Typescript
 3. Stripe
 4. Next JS
-5. Tailwind (little bit)
-6. MongoDB
-7. Node JS
-8. Netlify
+5. Tailwind CSS (little bit)
+6. CSS
+7. MongoDB
+8. Node JS
+9. Netlify
 
 ## Extra libs used:
 1. react-scroll-to-top

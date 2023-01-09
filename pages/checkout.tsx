@@ -1,7 +1,14 @@
 import React from 'react';
+import Footer from '../components/Footer';
+import Header from '../components/Header';
 
 export default function CheckoutPage() {
     return(
-        <div>Checkout</div>
+        <>
+            <Header />
+            <div>Checkout</div>
+            <Footer />
+        </>
+        
     );
 };
