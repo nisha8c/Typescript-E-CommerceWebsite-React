@@ -1,13 +1,14 @@
 import React from 'react';
-import Footer from '../components/Footer';
-import Header from '../components/Header';
 
 export default function CheckoutPage() {
+
     return(
         <>
-            <Header />
-            <div>Checkout</div>
-            <Footer />
+            
+        <div>
+            checkout
+        </div>
+            
         </>
         
     );

@@ -1,13 +1,17 @@
 
 import React, { useState } from 'react';
+import Head from 'next/head';
 import { ProductsData } from '../types/types';
 import {initMongoose} from "../lib/mongoose";
 import { findAllProducts } from "./api/products";
 import ScrollToTop from "react-scroll-to-top";
+import { Toaster } from 'react-hot-toast';
 
 import Product from '../components/Product';
 import Footer from '../components/Footer';
 import Header from '../components/Header';
+import Basket from '../components/Basket';
+
 
 interface IProductComponentProps {
   products: ProductsData[]
@@ -32,8 +36,15 @@ export default function Home({products}: IProductComponentProps) {
   }
 
   return (
-    <>
+      <>
+      <Toaster /> {/* Toaster should be at top */}
+      <Head>
+        <title>TS Shop By Nisha</title>
+      </Head>
+
       <Header />
+
+      <Basket />
 
       <ScrollToTop smooth={true} width='25' height='25' top={15}/>
 
@@ -61,10 +72,10 @@ export default function Home({products}: IProductComponentProps) {
           </>
         ))}
       </div>
-        
+
       <Footer />
-   
-    </>
+      </>
+  
   );
 }
 

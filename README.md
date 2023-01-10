@@ -1,11 +1,15 @@
-# Details about the e-com website developed:
+# Details about the e-com website developed: 
+## (work in progress)  :)
 
 ## Deployed link: 
 https://typescript-ecommerce-by-nisha.netlify.app/
 
+## To run the project:
+1. npm i
+2. npm run dev
+
 ## Database
 MongoDB
-
 
 ## Tech Stack
 1. React JS
@@ -17,11 +21,34 @@ MongoDB
 7. MongoDB
 8. Node JS
 9. Netlify
+10. Redux JS
+
+## React Hooks used:
+1. useState
+2. useContext
+3. useEffect
+4. useSelector
 
 ## Extra libs used:
 1. react-scroll-to-top
 2. react-social-icons
-3. use-local-storage-state
+3. react-hot-toast : It will take care of rendering all notifications emitted
+4. npm i @heroicons/react
+
+## Chrome extensions to test my work
+1. redux dev tool extension
+
+## App is capable of:
+1. Fetching all products from MongoDB database
+2. Displaying all products
+3. User can search products by name
+4. Filter by product category
+5. Go to top button on long scroll down
+6. Social links in footer
+7. User can add / delete products to/from cart which gets saved in local storage'
+8. Place order / checkout through Stripe gateway
+9. On successful purchase, user gets greeting.
+10. Site is already deployed on link mentioned above under Deployed link section.
 
 ## Start Date: Jan 08, 2023
 ## End Date: Currently working
