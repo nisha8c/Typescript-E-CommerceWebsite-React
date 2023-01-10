@@ -5,6 +5,7 @@ import { removeFromBasket } from "../redux/basketSlice";
 import { useDispatch } from "react-redux";
 import toast from "react-hot-toast";
 import { ProductsData } from '../types/types';
+import Currency from "react-currency-formatter";
 
 interface Props {
   items: ProductsData[];
@@ -45,7 +46,10 @@ const CheckoutProduct = ({ id, items }: Props) => {
         </div>
         <div className="flex flex-col items-end space-y-4">
           <h4 className="text-xl font-semibold lg:text-2xl">
-            {items.reduce((total, item) => total + item.price, 0)}
+            <Currency
+              quantity={items.reduce((total, item) => total + item.price, 0)}
+              currency="USD"
+            />
           </h4>
           <button
             onClick={removeItemFromBasket}

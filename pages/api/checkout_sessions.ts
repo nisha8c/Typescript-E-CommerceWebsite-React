@@ -13,9 +13,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   console.log('handler of checkout-sessions....');
 
   if (req.method === "POST") {
-    console.log('inside if -- POST method');
     const items: ProductsData[] = req.body.items;
-
+    console.log('POST - ', items.length,'-', items);
     // This is the shape in which stripe expects the data to be
     const transformedItems = items.map((item) => ({
       price_data: {
@@ -42,16 +41,19 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         success_url: `${req.headers.origin}/success?session_id={CHECKOUT_SESSION_ID}`,
         cancel_url: `${req.headers.origin}/checkout`,
         metadata: {
-          images: JSON.stringify(items.map((item) => item.picture[0])),
+            images: JSON.stringify(items.map((item) => item.picture[0])),
         },
       };
       
+      console.log('entrcheckoutSession params create - ', params);
       const checkoutSession: Stripe.Checkout.Session =
         await stripe.checkout.sessions.create(params);
 
+      console.error("checkoutSession success");
       res.status(200).json(checkoutSession);
 
     } catch (err) {
+      console.error("Internal server error", err);
       const errorMessage =
         err instanceof Error ? err.message : "Internal server error";
       res.status(500).json({ statusCode: 500, message: errorMessage });

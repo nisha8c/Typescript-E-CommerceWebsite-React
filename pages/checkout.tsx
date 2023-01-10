@@ -3,16 +3,17 @@ import Header from "../components/Header";
 import { ChevronDownIcon } from "@heroicons/react/solid";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
+import Currency from "react-currency-formatter";
 import { useSelector } from "react-redux";
 import Stripe from "stripe";
 import { selectBasketItems, selectBasketTotal } from "../redux/basketSlice";
-import CheckoutProduct from "../components/CheckoutProduct"; ;
+import CheckoutProduct from "../components/CheckoutProduct";
 import { fetchPostJSON } from "../utils/api-helpers";
 import getStripe from "../utils/get-stripejs";
-import { ProductsData } from '../types/types';
 import Button from "../components/Button";
+import { ProductsData } from "../types/types";
 
-const Checkout = () => {
+function Checkout() {
   const items = useSelector(selectBasketItems);
   const basketTotal = useSelector(selectBasketTotal);
   const router = useRouter();
@@ -31,7 +32,6 @@ const Checkout = () => {
   }, [items]);
 
   const createCheckoutSession = async () => {
-    console.log('createCheckoutSession fun....');
     setLoading(true);
 
     const checkoutSession: Stripe.Checkout.Session = await fetchPostJSON(
@@ -43,7 +43,7 @@ const Checkout = () => {
 
     // Internal Server Error
     if ((checkoutSession as any).statusCode === 500) {
-      console.error('Checkout Error::: ', (checkoutSession as any).message);
+      console.error((checkoutSession as any).message);
       return;
     }
 
@@ -59,7 +59,7 @@ const Checkout = () => {
     // If `redirectToCheckout` fails due to a browser or network
     // error, display the localized error message to your customer
     // using `error.message`.
-    console.warn('Warning:: ', error.message);
+    console.warn(error.message);
 
     setLoading(false);
   };
@@ -67,23 +67,23 @@ const Checkout = () => {
   return (
     <div className="min-h-screen overflow-hidden bg-[#E7ECEE]">
       <Head>
-        <title>Cart - TS Shop By Nisha</title>
+        <title>Cart - TS Ecommerce By Nisha</title>
+        <link rel="icon" href="/favicon.ico" />
       </Head>
       <Header />
       <main className="mx-auto max-w-5xl pb-24">
         <div className="px-5">
           <h1 className="my-4 text-3xl font-semibold lg:text-4xl">
-            {items.length > 0 ? "Review your cart." : "Your cart is empty."}
+            {items.length > 0 ? "Review your bag." : "Your bag is empty."}
           </h1>
           <p className="my-4">Free delivery and free returns.</p>
 
           {items.length === 0 && (
             <Button
-            title="Continue Shopping"
-            onClick={() => router.push("/")}
+              title="Continue Shopping"
+              onClick={() => router.push("/")}
             />
           )}
-
         </div>
 
         {items.length > 0 && (
@@ -98,7 +98,7 @@ const Checkout = () => {
                   <div className="flex justify-between">
                     <p>Subtotal</p>
                     <p>
-                      {basketTotal}
+                      <Currency quantity={basketTotal} currency="USD" />
                     </p>
                   </div>
                   <div className="flex justify-between">
@@ -120,7 +120,7 @@ const Checkout = () => {
                 <div className="flex justify-between pt-4 text-xl font-semibold">
                   <h4>Total</h4>
                   <h4>
-                    {basketTotal}
+                    <Currency quantity={basketTotal} currency="USD" />
                   </h4>
                 </div>
               </div>
@@ -138,7 +138,7 @@ const Checkout = () => {
                         $283.16/mo. at 0% APR<sup className="-top-1">◊</sup>
                       </span>
                     </h4>
-                  
+                    <Button title="Check Out with Apple Card Monthly Installments" />
                     <p className="mt-2 max-w-[240px] text-[13px]">
                       $0.00 due today, which includes applicable full-price
                       items, down payments, shipping, and taxes.
@@ -149,7 +149,7 @@ const Checkout = () => {
                     <h4 className="mb-4 flex flex-col text-xl font-semibold">
                       Pay in full
                       <span>
-                        {basketTotal}
+                        <Currency quantity={basketTotal} currency="USD" />
                       </span>
                     </h4>
 
@@ -160,7 +160,6 @@ const Checkout = () => {
                       width="w-full"
                       onClick={createCheckoutSession}
                     />
-
                   </div>
                 </div>
               </div>
