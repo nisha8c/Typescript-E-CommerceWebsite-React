@@ -5,7 +5,6 @@ import { ProductsData } from '../types/types';
 import {initMongoose} from "../lib/mongoose";
 import { findAllProducts } from "./api/products";
 import ScrollToTop from "react-scroll-to-top";
-import { Toaster } from 'react-hot-toast';
 
 import Product from '../components/Product';
 import Footer from '../components/Footer';
@@ -37,7 +36,7 @@ export default function Home({products}: IProductComponentProps) {
 
   return (
       <>
-      <Toaster /> {/* Toaster should be at top */}
+    
       <Head>
         <title>TS Shop By Nisha</title>
       </Head>

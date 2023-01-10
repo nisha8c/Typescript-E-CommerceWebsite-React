@@ -9,11 +9,11 @@ const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
   apiVersion: "2022-11-15",
 });
 
-export default async function handler(
-  req: NextApiRequest,
-  res: NextApiResponse
-) {
+export default async function handler(req: NextApiRequest, res: NextApiResponse) {
+  console.log('handler of checkout-sessions....');
+
   if (req.method === "POST") {
+    console.log('inside if -- POST method');
     const items: ProductsData[] = req.body.items;
 
     // This is the shape in which stripe expects the data to be

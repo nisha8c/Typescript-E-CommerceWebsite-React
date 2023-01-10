@@ -1,4 +1,6 @@
 export async function fetchPostJSON(url: string, data?: {}) {
+  console.log('URL from api-helpers - fetchPostJSON: ' + url);
+
     try {
       // Default options are marked with *
       const response = await fetch(url, {
@@ -14,7 +16,8 @@ export async function fetchPostJSON(url: string, data?: {}) {
         referrerPolicy: "no-referrer", // no-referrer, *client
         body: JSON.stringify(data || {}), // body data type must match "Content-Type" header
       });
-      return await response.json(); // parses JSON response into native JavaScript objects
+      return await response.json();
+       // parses JSON response into native JavaScript objects
     } catch (err) {
       if (err instanceof Error) {
         throw new Error(err.message);

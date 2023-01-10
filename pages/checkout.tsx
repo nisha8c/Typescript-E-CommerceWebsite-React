@@ -10,6 +10,7 @@ import CheckoutProduct from "../components/CheckoutProduct"; ;
 import { fetchPostJSON } from "../utils/api-helpers";
 import getStripe from "../utils/get-stripejs";
 import { ProductsData } from '../types/types';
+import Button from "../components/Button";
 
 const Checkout = () => {
   const items = useSelector(selectBasketItems);
@@ -42,7 +43,7 @@ const Checkout = () => {
 
     // Internal Server Error
     if ((checkoutSession as any).statusCode === 500) {
-      console.error((checkoutSession as any).message);
+      console.error('Checkout Error::: ', (checkoutSession as any).message);
       return;
     }
 
@@ -58,7 +59,7 @@ const Checkout = () => {
     // If `redirectToCheckout` fails due to a browser or network
     // error, display the localized error message to your customer
     // using `error.message`.
-    console.warn(error.message);
+    console.warn('Warning:: ', error.message);
 
     setLoading(false);
   };
@@ -77,11 +78,10 @@ const Checkout = () => {
           <p className="my-4">Free delivery and free returns.</p>
 
           {items.length === 0 && (
-            <button
-              onClick={() => router.push("/")}
-            >
-                Continue Shopping
-            </button>
+            <Button
+            title="Continue Shopping"
+            onClick={() => router.push("/")}
+            />
           )}
 
         </div>
@@ -153,10 +153,13 @@ const Checkout = () => {
                       </span>
                     </h4>
 
-                    <button className="bg-emerald-400 text-white py-1 px-3 rounded-xl"
+                    <Button
+                      noIcon
+                      loading={loading}
+                      title="Check Out"
+                      width="w-full"
                       onClick={createCheckoutSession}
-                    >Checkout
-                    </button>
+                    />
 
                   </div>
                 </div>
