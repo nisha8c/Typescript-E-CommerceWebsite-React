@@ -45,10 +45,12 @@ export default async function handler(
           images: JSON.stringify(items.map((item) => item.picture[0])),
         },
       };
+      
       const checkoutSession: Stripe.Checkout.Session =
         await stripe.checkout.sessions.create(params);
 
       res.status(200).json(checkoutSession);
+
     } catch (err) {
       const errorMessage =
         err instanceof Error ? err.message : "Internal server error";
