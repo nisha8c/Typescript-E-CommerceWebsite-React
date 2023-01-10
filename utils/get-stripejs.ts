@@ -1,5 +1,6 @@
 import { loadStripe, Stripe } from "@stripe/stripe-js";
 
+// Intilalises Stripe once. Does not re-intialise
 let stripePromise: Promise<Stripe | null>;
 const getStripe = () => {
   if (!stripePromise) {
