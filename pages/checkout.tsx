@@ -153,7 +153,7 @@ const Checkout = () => {
                       </span>
                     </h4>
 
-                    <button
+                    <button className="bg-emerald-400 text-white py-1 px-3 rounded-xl"
                       onClick={createCheckoutSession}
                     >Checkout
                     </button>
