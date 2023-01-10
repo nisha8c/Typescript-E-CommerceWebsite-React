@@ -15,7 +15,7 @@ const Product = ({data}: IProductComponentProps) => {
     const dispatch = useDispatch();
 
     const addProductToCart = () => {
-      console.log('addProductToCart function...');
+      
       dispatch(addToBasket(data));
       toast.success(`${data.name} added to basket`, {
         position: "bottom-center",

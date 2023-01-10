@@ -34,6 +34,7 @@ MongoDB
 2. react-social-icons
 3. react-hot-toast : It will take care of rendering all notifications emitted
 4. npm i @heroicons/react
+5. npm i react-currency-formatter
 
 ## Chrome extensions to test my work
 1. redux dev tool extension
@@ -59,6 +60,13 @@ https://tailwindcss.com/docs/guides/nextjs
 https://app.netlify.com/start
 ## useful link : 
 https://nextjs.org/docs/basic-features/typescript
+## Stripe next js checkout:
+1. 
+https://vercel.com/guides/getting-started-with-nextjs-typescript-stripe
+
+2. 
+https://stripe.com/docs/checkout/quickstart
+
 
 
 
