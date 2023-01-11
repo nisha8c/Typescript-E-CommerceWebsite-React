@@ -46,7 +46,7 @@ const CheckoutProduct = ({ id, items }: Props) => {
         </div>
         <div className="flex flex-col items-end space-y-4">
           <h4 className="text-xl font-semibold lg:text-2xl">
-            {
+            $ {
               // formatAmountForStripe(items.reduce((total, item) => total + item.price, 0), 'usd')
               items.reduce((total, item) => total + item.price, 0)
             }

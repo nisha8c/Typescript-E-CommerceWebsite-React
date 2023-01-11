@@ -140,7 +140,7 @@ import {
                   </button>
   
                   <p className="text-xl font-medium text-black">
-                    {
+                  $ {
                      // formatAmountForStripe(subtotal + 20, 'usd')
                      subtotal + 20
                     }
@@ -164,7 +164,7 @@ import {
                         </div>
                         <p className="flex-1">{product.description}</p>
                         <p>
-                          {
+                        $ {
                           // formatAmountForStripe(product.price / 100, 'usd')
                           product.price / 100
                           }
@@ -177,7 +177,7 @@ import {
                     <div className="flex justify-between text-sm">
                       <p className="text-[gray]">Subtotal</p>
                       <p className="font-medium">
-                        {
+                      $ {
                          // formatAmountForStripe(subtotal, 'usd')
                          subtotal
                         }
@@ -190,7 +190,7 @@ import {
                     <div className="flex justify-between text-sm">
                       <p className="text-[gray]">Shipping</p>
                       <p className="font-medium">
-                        {
+                      $ {
                          // formatAmountForStripe(20, 'usd')
                          20
                         }
@@ -202,7 +202,7 @@ import {
                     <p className="flex items-center gap-x-2 text-xs text-[gray]">
                       USD
                       <span className="text-xl font-medium text-black">
-                        {
+                      $ {
                          // formatAmountForStripe(subtotal + 20, 'usd')
                          subtotal + 20
                         }

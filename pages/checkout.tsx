@@ -98,10 +98,10 @@ function Checkout() {
                   <div className="flex justify-between">
                     <p>Subtotal</p>
                     <p>
-                      {
+                    $ {
                        // formatAmountForStripe(basketTotal, 'usd')
                        basketTotal
-                      }
+                      } USD
                     </p>
                   </div>
                   <div className="flex justify-between">
@@ -123,7 +123,7 @@ function Checkout() {
                 <div className="flex justify-between pt-4 text-xl font-semibold">
                   <h4>Total</h4>
                   <h4>
-                    {
+                  $ {
                       // formatAmountForStripe(basketTotal, 'usd')
                       basketTotal
                     }
@@ -155,7 +155,7 @@ function Checkout() {
                     <h4 className="mb-4 flex flex-col text-xl font-semibold">
                       Pay in full
                       <span>
-                        {
+                      $ {
                          // formatAmountForStripe(basketTotal, 'usd')
                          basketTotal
                         }
