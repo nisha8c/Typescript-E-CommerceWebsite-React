@@ -1,6 +1,6 @@
 import { loadStripe, Stripe } from "@stripe/stripe-js";
 
-// Intilalises Stripe once. Does not re-intialise
+// Intilalises Stripe once. Does not re-intialise: Singleton pattern.
 let stripePromise: Promise<Stripe | null>;
 const getStripe = () => {
   if (!stripePromise) {

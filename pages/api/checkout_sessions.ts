@@ -38,18 +38,20 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         line_items: transformedItems,
         payment_intent_data: {},
         mode: "payment",
-        success_url: `${req.headers.origin}/success?session_id={CHECKOUT_SESSION_ID}`,
+        success_url: `${req.headers.origin}/success`,
         cancel_url: `${req.headers.origin}/checkout`,
         metadata: {
             images: JSON.stringify(items.map((item) => item.picture[0])),
         },
+
       };
       
       console.log('entrcheckoutSession params create - ', params);
       const checkoutSession: Stripe.Checkout.Session =
         await stripe.checkout.sessions.create(params);
 
-      console.error("checkoutSession success");
+      console.log('CHECKOUT SESSION ID?????? ---- ', checkoutSession);
+
       res.status(200).json(checkoutSession);
 
     } catch (err) {

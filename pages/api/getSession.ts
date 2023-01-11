@@ -10,6 +10,8 @@ export default async function handler(
 ) {
   const sessionId = req.query.session_id as string;
 
+  console.log('sessionId................', sessionId);
+
   const session = await stripe.checkout.sessions.listLineItems(sessionId);
 
   res.status(200).json({
