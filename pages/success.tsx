@@ -12,7 +12,7 @@ import {
   import Link from "next/link";
   import { useRouter } from "next/router";
   import { useEffect, useState } from "react";
-  import Currency from "react-currency-formatter";
+  import { formatAmountForStripe } from "../utils/stripe-helpers";
   import { useMediaQuery } from "react-responsive";
   import Button from "../components/Button";
   import { fetchLineItems } from "../utils/fetchLineItems";
@@ -140,7 +140,10 @@ import {
                   </button>
   
                   <p className="text-xl font-medium text-black">
-                    <Currency quantity={subtotal + 20} />
+                    {
+                     // formatAmountForStripe(subtotal + 20, 'usd')
+                     subtotal + 20
+                    }
                   </p>
                 </div>
               </div>
@@ -161,10 +164,11 @@ import {
                         </div>
                         <p className="flex-1">{product.description}</p>
                         <p>
-                          <Currency
-                            quantity={product.price / 100}
-                            currency="USD"
-                          />
+                          {
+                          // formatAmountForStripe(product.price / 100, 'usd')
+                          product.price / 100
+                          }
+                         
                         </p>
                       </div>
                     ))}
@@ -173,7 +177,10 @@ import {
                     <div className="flex justify-between text-sm">
                       <p className="text-[gray]">Subtotal</p>
                       <p className="font-medium">
-                        <Currency quantity={subtotal} />
+                        {
+                         // formatAmountForStripe(subtotal, 'usd')
+                         subtotal
+                        }
                       </p>
                     </div>
                     <div className="flex justify-between text-sm">
@@ -183,7 +190,10 @@ import {
                     <div className="flex justify-between text-sm">
                       <p className="text-[gray]">Shipping</p>
                       <p className="font-medium">
-                        <Currency quantity={20} currency="USD" />
+                        {
+                         // formatAmountForStripe(20, 'usd')
+                         20
+                        }
                       </p>
                     </div>
                   </div>
@@ -192,7 +202,10 @@ import {
                     <p className="flex items-center gap-x-2 text-xs text-[gray]">
                       USD
                       <span className="text-xl font-medium text-black">
-                        <Currency quantity={subtotal + 20} />
+                        {
+                         // formatAmountForStripe(subtotal + 20, 'usd')
+                         subtotal + 20
+                        }
                       </span>
                     </p>
                   </div>

@@ -3,7 +3,7 @@ import Header from "../components/Header";
 import { ChevronDownIcon } from "@heroicons/react/solid";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
-import Currency from "react-currency-formatter";
+import { formatAmountForStripe } from "../utils/stripe-helpers";
 import { useSelector } from "react-redux";
 import Stripe from "stripe";
 import { selectBasketItems, selectBasketTotal } from "../redux/basketSlice";
@@ -98,7 +98,10 @@ function Checkout() {
                   <div className="flex justify-between">
                     <p>Subtotal</p>
                     <p>
-                      <Currency quantity={basketTotal} currency="USD" />
+                      {
+                       // formatAmountForStripe(basketTotal, 'usd')
+                       basketTotal
+                      }
                     </p>
                   </div>
                   <div className="flex justify-between">
@@ -120,7 +123,10 @@ function Checkout() {
                 <div className="flex justify-between pt-4 text-xl font-semibold">
                   <h4>Total</h4>
                   <h4>
-                    <Currency quantity={basketTotal} currency="USD" />
+                    {
+                      // formatAmountForStripe(basketTotal, 'usd')
+                      basketTotal
+                    }
                   </h4>
                 </div>
               </div>
@@ -149,7 +155,10 @@ function Checkout() {
                     <h4 className="mb-4 flex flex-col text-xl font-semibold">
                       Pay in full
                       <span>
-                        <Currency quantity={basketTotal} currency="USD" />
+                        {
+                         // formatAmountForStripe(basketTotal, 'usd')
+                         basketTotal
+                        }
                       </span>
                     </h4>
 
