@@ -1,8 +1,25 @@
 # Details about the e-com website developed: 
-## (work in progress)  :)
-
+## Have removed Stripe keys So Payment part wil not work
 ## Deployed link: 
 https://typescript-ecommerce-by-nisha.netlify.app/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ## To run the project:
 1. npm i
